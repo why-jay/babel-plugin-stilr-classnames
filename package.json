@@ -1,0 +1,34 @@
+{
+  "name": "babel-plugin-stilr-classnames",
+  "main": "dist",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "prepublish": "npm run build",
+    "test": "npm run build && mocha"
+  },
+  "dependencies": {
+    "autoprefixer": "^6.0.2",
+    "babel-core": "^5.8.23",
+    "lodash.isstring": "^3.0.1",
+    "lodash.rest": "^3.0.0",
+    "postcss": "^5.0.4",
+    "stilr": "^1.2.1",
+    "stilr-classnames": "^0.2.1"
+  },
+  "description": "Move all uses of stilr-classnames to root scope, for use in hot-loaded and production environments.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chcokr/babel-plugin-stilr-classnames.git"
+  },
+  "keywords": [
+    "babel-plugin",
+    "stilr"
+  ],
+  "author": "YJ Yang <chcokr@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chcokr/babel-plugin-stilr-classnames/issues"
+  },
+  "homepage": "https://github.com/chcokr/babel-plugin-stilr-classnames#readme"
+}
