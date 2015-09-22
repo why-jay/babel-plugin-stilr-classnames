@@ -59,7 +59,7 @@ export default function ({Plugin, types: t}) {
                   stilrStyleElem.id = 'babel_stilrcx_style';
                   document.head.appendChild(stilrStyleElem);
                 }
-                stilrStyleElem.textContent = ${JSON.stringify(stylesheet)};
+                stilrStyleElem.textContent += ${JSON.stringify(stylesheet)};
               `)
             );
 

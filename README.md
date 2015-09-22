@@ -35,5 +35,5 @@ if (!stilrStyleElem) {
   stilrStyleElem.id = 'babel_stilrcx_style';
   document.head.appendChild(stilrStyleElem);
 }
-stilrStyleElem.textContent = "the stylesheet that just got rendered";
+stilrStyleElem.textContent += "the stylesheet that just got rendered";
 ```
