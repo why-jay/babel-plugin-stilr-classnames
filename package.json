@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-stilr-classnames",
   "main": "dist",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build",
