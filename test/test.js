@@ -38,6 +38,8 @@ describe('Plugin', function () {
           }
         );
 
+      console.log(transformResult.code);
+
       it('writes proper header at beginning of program', function () {
         var expectedHeader =
           fs.readFileSync(path.join(__dirname, 'general', 'expectedHeader.js'))
