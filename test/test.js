@@ -26,7 +26,7 @@ describe('Plugin', function () {
 
   });
 
-  describe(', when process.env.NODE_ENV === "production",',
+  describe(', when process.env.NODE_ENV !== "production",',
     function () {
       process.env.NODE_ENV = 'development';
 
