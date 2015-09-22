@@ -21,10 +21,13 @@ value of the function call.
 will use [stilr](https://github.com/kodyl/stilr) to render a stylesheet
 containing all of the styles you defined via `stilrcx(...)`.
 
--   Finally, the following code will be added to the top of your program:
+-   Finally, if `process.env.NODE_ENV === 'production'`,
+`global.stilrStylesheet` is set to the stylesheet that just got rendered.
+
+- If `process.env.NODE_ENV !== 'production'`, the following code will be added
+to the top of your program:
 
 ```JS
-var stylesheet = "the stylesheet that just got rendered";
 var stilrStyleElem =
     document.getElementById('babel_stilrcx_style');
 if (!stilrStyleElem) {
@@ -32,6 +35,5 @@ if (!stilrStyleElem) {
   stilrStyleElem.id = 'babel_stilrcx_style';
   document.head.appendChild(stilrStyleElem);
 }
-stilrStyleElem.textContent = stylesheet;
-module.exports.stilrStylesheet = stylesheet;
+stilrStyleElem.textContent = "the stylesheet that just got rendered";
 ```

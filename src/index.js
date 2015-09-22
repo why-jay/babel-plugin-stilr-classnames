@@ -44,21 +44,26 @@ export default function ({Plugin, types: t}) {
               .process(stilr.render())
               .css;
 
-          scope.path.get('body')[0].insertBefore(
-            babel.parse(`
-              var stylesheet = ${JSON.stringify(stylesheet)};
-              var stilrStyleElem =
-                document.getElementById('babel_stilrcx_style');
-              if (!stilrStyleElem) {
-                stilrStyleElem = document.createElement('style');
-                stilrStyleElem.id = 'babel_stilrcx_style';
-                document.head.appendChild(stilrStyleElem);
-              }
-              stilrStyleElem.textContent = stylesheet;
-              module.exports.stilrStylesheet = stylesheet;
-            `)
-          );
+          if (process.env.NODE_ENV === 'production') {
 
+            global.stilrStylesheet = stylesheet;
+
+          } else {
+
+            scope.path.get('body')[0].insertBefore(
+              babel.parse(`
+                var stilrStyleElem =
+                  document.getElementById('babel_stilrcx_style');
+                if (!stilrStyleElem) {
+                  stilrStyleElem = document.createElement('style');
+                  stilrStyleElem.id = 'babel_stilrcx_style';
+                  document.head.appendChild(stilrStyleElem);
+                }
+                stilrStyleElem.textContent = ${JSON.stringify(stylesheet)};
+              `)
+            );
+
+          }
         }
       }
     }
